@@ -1,0 +1,106 @@
+
+
+
+
+
+<table border="1" [cellPadding]="1" [cellSpacing]="0"  id="maintenanceReport" >
+    
+    
+      <tr>
+    
+      <td>Wing-Flat No</td>
+      
+      <td>Maintenance Amount</td>
+    
+    
+      
+        
+      <td>Maintenance Duration</td>
+
+      <td>Transaction Number</td>
+
+      <td>Maintenance Paid Date</td>
+
+     
+      
+    </tr>
+  
+
+    <tbody class=".table-striped">
+  
+      
+  
+      <tr *ngFor="let mntList of maintenanceTransactionList">
+        
+       
+    
+  
+      <td>
+        <div *ngIf="mntList.wing"  >
+          {{mntList.wing}} -  {{mntList.flatNo}} 
+         
+        </div>
+        <div *ngIf="!mntList.wing">
+          No data
+        </div>
+        
+
+      </td>
+  
+  
+  
+  
+      <td>
+        <div *ngIf="mntList.maintenanceAmount" >
+          {{mntList.maintenanceAmount}} 
+        </div>
+        <div *ngIf="!mntList.maintenanceAmount">
+          No data
+        </div>
+      </td>
+  
+      
+      <td>
+        <div *ngIf="mntList.paymentFromMonthToMonth" >
+          {{mntList.paymentFromMonthToMonth}} 
+        </div>
+        <div *ngIf="!mntList.paymentFromMonthToMonth">
+          No data
+        </div>
+      </td>
+
+      
+      <td>
+        <div *ngIf="mntList.transactionNumber" >
+          {{mntList.transactionNumber}} 
+        </div>
+        <div *ngIf="!mntList.transactionNumber">
+          No data
+        </div>
+      </td>
+
+
+      <td>
+        <div *ngIf="mntList.maintenancePaidDate" >
+          {{mntList.maintenancePaidDate  | date: 'dd/MMM/yyyy hh:mm:ss'}} 
+        </div>
+        <div *ngIf="!mntList.maintenancePaidDate">
+          No data
+        </div>
+      </td>
+
+     
+     
+
+
+    
+       
+  </tr> 
+      
+    </tbody>
+  </table>
+
+
+  <button mat-raised-button color="primary" (click)="generatePdfReport()" >DownLoad PDF</button>
+  
+  

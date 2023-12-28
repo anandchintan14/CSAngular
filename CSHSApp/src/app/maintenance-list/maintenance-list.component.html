@@ -1,0 +1,193 @@
+<p>maintenance-list works!</p>
+
+
+
+
+<table>
+    <thead>
+    <th>Maintenance details</th>
+</thead>
+<tbody>
+  <!--
+  <tr *ngFor="let item of data">
+      {{item.name}}  {{item.age}}
+    </tr>
+    -->
+    <th>Financial Year</th>
+    <th>Wing </th>
+    <th>flatNo </th>
+    <th>April-2023 </th>
+    <th>May-2023 </th>
+    <th>June-2023 </th>
+    <th>July-2023 </th>
+    <th>Aug-2023 </th>
+    <th>Sep-2023 </th>
+    <th>Oct-2023 </th>
+    <th>Nov-2023 </th>
+    <th>Dec-2023 </th>
+    <th>Jan-2024 </th>
+    <th>Feb-2024 </th>
+    <th>March-2024 </th>
+
+    <tr *ngFor="let mnt of maintenance">
+      <td>
+      <div *ngIf="mnt.financialYear" >
+        {{mnt.financialYear}} 
+      </div>
+      <div *ngIf="!mnt.financialYear">
+        No data
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.wing" >
+        {{mnt.wing}} 
+      </div>
+      <div *ngIf="!mnt.wing">
+        No data
+      </div>
+    </td>
+    <td>     
+       <div *ngIf="mnt.flatNo" >
+        {{mnt.flatNo}} 
+      </div>
+      <div *ngIf="!mnt.flatNo">
+        No data
+      </div>
+    </td>
+
+      
+       <td>
+      <div *ngIf="mnt.april2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.april2023">
+        Pending
+      </div>
+    </td>
+<td>
+      <div *ngIf="mnt.may2023" >
+        Paid 
+      </div>
+          
+      <div *ngIf="!mnt.may2023">
+        Pending
+      </div>
+    </td>
+
+    <td>
+      
+      <div *ngIf="mnt.june2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.june2023">
+        Pending
+      </div>
+    </td>
+    <td>      <div *ngIf="mnt.july2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.july2023">
+        Pending
+      </div>
+    </td>
+
+<td>     
+      <div *ngIf="mnt.aug2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.aug2023">
+        Pending
+      </div>
+    </td>
+      <td>
+      <div *ngIf="mnt.sep2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.sep2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.oct2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.oct2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.nov2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.nov2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.dec2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.dec2023">
+        Pending
+      </div>
+    </td>
+   
+    <td>
+
+      <div *ngIf="mnt.jan2024" >
+       Paid
+      </div>
+    
+         
+      <div *ngIf="!mnt.jan2024">
+        Pending
+      </div>
+      </td>
+      
+      <td>
+
+      <div *ngIf="mnt.feb2024" >
+        Paid
+      </div>
+    
+
+      <div *ngIf="!mnt.feb2024">
+        Pending
+      </div>
+
+    </td> 
+
+    <td>
+
+      <div *ngIf="mnt.march2024" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.march2024">
+        Pending
+      </div>
+    </td>
+
+     
+     
+      
+      
+      
+     
+      
+      
+      
+      
+     
+    </tr>
+ 
+</tbody>
+

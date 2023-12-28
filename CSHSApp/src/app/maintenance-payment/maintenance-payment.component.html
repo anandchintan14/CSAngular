@@ -1,0 +1,368 @@
+<div class="row">
+  <h2>Maintenance Payment</h2>
+</div>
+
+<form [formGroup]="maintenancePaymentForm" (ngSubmit)="saveMaintenanceTransaction()">  
+ 
+<div class="row">
+<mat-radio-group  formControlName="financialYear" [(ngModel)]="maintenanceTransaction.financialYear">
+  <mat-label><b>Financial Year &nbsp;</b></mat-label>
+  <mat-radio-button value="FY-2023-2024" >2023-2024</mat-radio-button>
+  
+</mat-radio-group>
+
+
+</div>
+
+<div class="row" >
+
+  <mat-radio-group  formControlName="wing" [(ngModel)]="maintenanceTransaction.wing">
+    <mat-label><b>Wing &nbsp;</b></mat-label>
+    <mat-radio-button value="A">A</mat-radio-button>
+    <mat-radio-button value="B">B</mat-radio-button>
+    <mat-radio-button value="C">C</mat-radio-button>
+    <mat-radio-button value="D">D</mat-radio-button>
+    <mat-radio-button value="E">E</mat-radio-button>
+  </mat-radio-group>
+  &NonBreakingSpace;&NonBreakingSpace;
+
+  <mat-form-field appearance="outline" >
+    <mat-label>Flat No </mat-label>
+    <input (change)="flatNoChange()" matInput placeholder="3" formControlName="flatNo" [(ngModel)]="maintenanceTransaction.flatNo">
+  </mat-form-field>
+
+</div>
+&NonBreakingSpace;&NonBreakingSpace;
+<div class="row" >
+<mat-radio-group  formControlName="residentType" [(ngModel)]="maintenanceTransaction.residentType">
+  <mat-label><b>Resident Type &nbsp;</b></mat-label>
+  <mat-radio-button value="owner">Owner</mat-radio-button>
+  <mat-radio-button value="tenant">Tenant</mat-radio-button>
+</mat-radio-group>
+</div>
+
+&NonBreakingSpace;&NonBreakingSpace;
+
+<div class="row">
+
+  <table [border]="1">
+
+    <thead>
+      <th [colSpan]="4">Maintenance Amount</th>
+  </thead>
+  <tbody>
+<th>Quarterly  Amount</th><th>Half Yeraly  Amount</th><th>Yearly Amount</th><th>Monthly Amount</th>
+<tr>
+  <td><p>Owner : 4000</p><p>Tenant : </p> </td>
+  <td><p>Owner : 5500</p><p>Tenant : </p> </td>
+  <td><p>Owner : 11000</p><p>Tenant : </p> </td>
+  <td><p>Owner : 1000</p><p>Tenant : </p> </td>
+
+</tr>
+
+  </tbody>
+  </table>
+</div>
+
+&NonBreakingSpace;&NonBreakingSpace;
+&NonBreakingSpace;&NonBreakingSpace;
+
+<div class="row">
+  <table>
+    <thead>
+      <th>Owner Details</th>
+    </thead>
+    <tbody>
+
+      <th>Wing-FlatNo</th>
+      <th>Owner Name</th>
+      <th>Email Address</th>
+      <th>Mobile Number</th>
+      
+    </tbody>
+
+    <tr>
+     
+      <td>
+        <div *ngIf="maintenance.wing" >
+          {{maintenance.wing}} -  {{maintenance.flatNo}}  
+        </div>
+        
+      </td>
+    
+    
+    
+     
+      <td>
+        <div *ngIf="maintenance.ownerName" >
+          {{maintenance.ownerName}}  
+        </div>
+        
+      </td>
+      
+
+      
+     
+        <td>
+          <div *ngIf="maintenance.ownerEmailAddress" >
+            {{maintenance.ownerEmailAddress}}  
+          </div>
+          
+        </td>
+        
+
+        
+     
+          <td>
+            <div *ngIf="maintenance.ownerMobileNo" >
+              {{maintenance.ownerMobileNo}}  
+            </div>
+            
+          </td>
+          </tr>
+       
+     
+      
+  </table>
+</div>
+<div class="row">
+  <table>
+    <thead>
+    <th colspan="15">Maintenance details</th>
+</thead>
+<tbody>
+    
+   
+    
+    <th>April-2023 </th>
+    <th>May-2023 </th>
+    <th>June-2023 </th>
+    <th>July-2023 </th>
+    <th>Aug-2023 </th>
+    <th>Sep-2023 </th>
+    <th>Oct-2023 </th>
+    <th>Nov-2023 </th>
+    <th>Dec-2023 </th>
+    <th>Jan-2024 </th>
+    <th>Feb-2024 </th>
+    <th>March-2024 </th>
+
+    <tr>
+     
+    
+
+      
+       <td>
+      <div *ngIf="maintenance.april2023" >
+       {{maintenance.april2023}}
+      </div>
+          
+     
+    </td>
+<td>
+      <div *ngIf="maintenance.may2023" >
+        {{maintenance.may2023}}
+      </div>
+          
+         </td>
+
+    <td>
+      
+      <div *ngIf="maintenance.june2023" >
+        {{maintenance.june2023}}
+      </div>
+          
+     
+    </td>
+    <td>      <div *ngIf="maintenance.july2023" >
+      {{maintenance.july2023}}
+      </div>
+          
+      
+    </td>
+
+<td>     
+      <div *ngIf="maintenance.aug2023" >
+        {{maintenance.aug2023}}
+      </div>
+          
+      
+    </td>
+      <td>
+      <div *ngIf="maintenance.sep2023" >
+        {{maintenance.sep2023}}
+      </div>
+          
+      
+    </td>
+    <td>
+      <div *ngIf="maintenance.oct2023" >
+        {{maintenance.oct2023}}
+      </div>
+          
+          </td>
+    <td>
+      <div *ngIf="maintenance.nov2023" >
+        {{maintenance.nov2023}}
+      </div>
+          
+      
+    </td>
+    <td>
+      <div *ngIf="maintenance.dec2023" >
+        {{maintenance.dec2023}}
+      </div>
+          
+      
+    </td>
+   
+    <td>
+
+      <div *ngIf="maintenance.jan2024" >
+        {{maintenance.jan2024}}
+      </div>
+    
+         
+      </td>
+      
+      <td>
+
+      <div *ngIf="maintenance.feb2024" >
+        {{maintenance.feb2024}}
+      </div>
+    
+
+     
+    </td> 
+
+    <td>
+
+      <div *ngIf="maintenance.march2024" >
+        {{maintenance.march2024}}
+      </div>
+          
+      
+    </td>
+
+     
+      
+     
+    </tr>
+ 
+</tbody>
+
+  </table>
+  
+  &NonBreakingSpace;&NonBreakingSpace;
+  &NonBreakingSpace;&NonBreakingSpace;
+
+  <div class="row">
+    <mat-radio-group appearance="outline">
+      <mat-label><b> Payment &nbsp;</b></mat-label>
+      <mat-radio-button value="yp01" (change)="div1Function()">yearly Payment</mat-radio-button>
+      <mat-radio-button value="hyp01" (change)="div2Function()">half yearly Payment</mat-radio-button>
+      <mat-radio-button value="qp01" (change)="div3Function()">quartely Payment</mat-radio-button>
+      <mat-radio-button value="mp01" (change)="div4Function()">Monthly Payment</mat-radio-button>
+     
+    </mat-radio-group>
+    </div>
+
+    
+  <div class="row"  id ="div1" *ngIf="div1">
+    <mat-radio-group  formControlName="yearlyPayment" [(ngModel)]="maintenanceTransaction.yearlyPayment">
+      <mat-label><b>Yearly Payment &nbsp;</b></mat-label>
+      <mat-radio-button value="Apr-2023-Mar-2024">April-2023 to March-2024</mat-radio-button>
+     
+    </mat-radio-group>
+    </div>
+
+
+  <div class="row"  id="div2" *ngIf="div2">
+    <mat-radio-group  formControlName="halfYearlyPayment" 
+    [(ngModel)]="maintenanceTransaction.halfYearlyPayment">
+      <mat-label><b>Half Yearly Payment &nbsp;</b></mat-label>
+      <mat-radio-button value="Apr-2023-Sep-2024">April-2023 to Sep-2023</mat-radio-button>
+      <mat-radio-button value="Oct-2023-Mar-2024">Oct-2023 to March-2024</mat-radio-button>
+    </mat-radio-group>
+    </div>
+
+    <div class="row" *ngIf="div3">
+      <mat-radio-group  formControlName="quartelyPayment" [(ngModel)]="maintenanceTransaction.quartelyPayment">
+        <mat-label><b>Quartely Payment &nbsp;</b></mat-label>
+        <mat-radio-button value="Apr-2023-Jun-2023">April-2023 to June-2023</mat-radio-button>
+        <mat-radio-button value="Jul-2023-Sep-2023">July-2023 to Sep-2023</mat-radio-button>
+        <mat-radio-button value="Oct-2023-Dec-2023">Oct-2023 to Dec-2023</mat-radio-button>
+        <mat-radio-button value="Jan-2024-Mar-2024">Jan-2024 to March-2024</mat-radio-button>
+
+      </mat-radio-group>
+      </div>
+
+      <div class="row" *ngIf="div4">
+        <mat-radio-group  formControlName="monthlyPayment" [(ngModel)]="maintenanceTransaction.monthlyPayment">
+          <mat-label><b>Monthly Payment &nbsp;</b></mat-label>
+          <mat-radio-button value="Monthly-Payment">Monthly Payment</mat-radio-button>
+         
+        </mat-radio-group>
+        </div>
+      
+    
+    
+  <!--
+    <input type="text" formControlName="flatNo" />-->
+    <!--
+    
+    <div class="row" >
+      <mat-form-field appearance="outline" >
+          <mat-label>From Month</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fromMonthYear" [(ngModel)]="maintenance.fromMonthYear">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+        &NonBreakingSpace;&NonBreakingSpace;
+      <mat-form-field appearance="outline" >
+          <mat-label>To Month</mat-label>
+          <input matInput [matDatepicker]="toMonth" formControlName="toMonthYear" [(ngModel)]="maintenance.toMonthYear" >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+
+          <mat-datepicker-toggle matIconSuffix [for]="toMonth"></mat-datepicker-toggle>
+          <mat-datepicker #toMonth></mat-datepicker>
+      </mat-form-field>
+  </div>
+-->
+  
+&NonBreakingSpace;&NonBreakingSpace;
+  <div class="row" >
+
+  
+    
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Transaction number </mat-label>
+      <input matInput placeholder="100" formControlName="transactionNumber" [(ngModel)]="maintenanceTransaction.transactionNumber">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Amount </mat-label>
+      <input id="maintenanceAmount" required="true" matInput placeholder="100" formControlName="maintenanceAmount" [(ngModel)]="maintenanceTransaction.maintenanceAmount">
+      <span matTextPostfix>INR&nbsp;</span>
+    </mat-form-field>
+
+  </div>
+
+    
+  <div class="row">
+    <button mat-raised-button>Cancel</button>&NonBreakingSpace;&NonBreakingSpace;
+    <button mat-raised-button color="primary"  >Save</button>
+
+</div>
+  
+</div>
+</form>
+  
+  
+<!--
+  <span>{{maintenancePaymentForm.value | json}}</span>-->
+
+  

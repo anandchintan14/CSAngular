@@ -1,0 +1,27 @@
+<div mat-dialog-title>
+    <h1>Login</h1>
+</div>
+<div mat-dialog-content class="content">
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="username">
+          
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Password">
+          
+        </mat-form-field>
+      </p>
+</div>
+<div mat-dialog-actions>
+<button mat-raised-button>Cancel</button>
+<button mat-raised-button color="primary"  (click)="loginAction()" mat-dialog-close="enable">Login</button>
+
+</div>
+<div class="container">
+      <router-outlet></router-outlet>
+    </div>

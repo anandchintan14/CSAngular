@@ -1,0 +1,14 @@
+
+.row {
+    padding-top: 10px;
+    width: 100%;
+    padding: 8px 2px;
+    padding-left: 50px;
+    
+
+}
+
+div {
+    column-gap: 40px;
+    row-gap: 40px;
+  }

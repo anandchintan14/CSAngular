@@ -1,0 +1,313 @@
+<div class="row">
+  <h2>Maintenance Report</h2>
+</div>
+
+<form [formGroup]="maintenancePaymentForm" (ngSubmit)="searchMaintenanceTransaction()">  
+ 
+<div class="row">
+<mat-radio-group  formControlName="financialYear" [(ngModel)]="maintenanceTransaction.financialYear">
+  <mat-label><b>Financial Year &nbsp;</b></mat-label>
+  <mat-radio-button value="FY-2023-2024" >2023-2024</mat-radio-button>
+  
+</mat-radio-group>
+
+
+</div>
+
+<div class="row" >
+
+  <mat-radio-group  formControlName="wing" [(ngModel)]="maintenanceTransaction.wing">
+    <mat-label><b>Wing  &nbsp;</b></mat-label>
+    <mat-radio-button value="A">A</mat-radio-button>
+    <mat-radio-button value="B">B</mat-radio-button>
+    <mat-radio-button value="C">C</mat-radio-button>
+    <mat-radio-button value="D">D</mat-radio-button>
+    <mat-radio-button value="E">E</mat-radio-button>
+  </mat-radio-group>
+  &NonBreakingSpace;&NonBreakingSpace;
+
+  <mat-form-field appearance="outline" >
+    <mat-label>Flat No </mat-label>
+    <input  matInput placeholder="3" formControlName="flatNo" [(ngModel)]="maintenanceTransaction.flatNo">
+  </mat-form-field>
+
+</div>
+
+
+<div class="row">
+  
+ 
+
+  <div class="row">
+    <mat-radio-group appearance="outline">
+      <mat-label><b> Payment Duration &nbsp;</b></mat-label>
+      <mat-radio-button value="yp01" (change)="div1Function()">yearly Payment</mat-radio-button>
+      <mat-radio-button value="hyp01" (change)="div2Function()">half yearly Payment</mat-radio-button>
+      <mat-radio-button value="qp01" (change)="div3Function()">quartely Payment</mat-radio-button>
+      <mat-radio-button value="mp01" (change)="div4Function()">Monthly Payment</mat-radio-button>
+     
+    </mat-radio-group>
+    </div>
+
+    
+  <div class="row"  id ="div1" *ngIf="div1">
+    <mat-radio-group  formControlName="yearlyPayment" [(ngModel)]="maintenanceTransaction.yearlyPayment">
+      <mat-label><b>Yearly  &nbsp;</b></mat-label>
+      <mat-radio-button value="Apr-2023-Mar-2024">April-2023 to March-2024</mat-radio-button>
+     
+    </mat-radio-group>
+    </div>
+
+
+  <div class="row"  id="div2" *ngIf="div2">
+    <mat-radio-group  formControlName="halfYearlyPayment" 
+    [(ngModel)]="maintenanceTransaction.halfYearlyPayment">
+      <mat-label><b>Half Yearly  &nbsp;</b></mat-label>
+      <mat-radio-button value="Apr-2023-Sep-2023">April-2023 to Sep-2023</mat-radio-button>
+      <mat-radio-button value="Oct-2023-Mar-2024">Oct-2023 to March-2024</mat-radio-button>
+    </mat-radio-group>
+    </div>
+
+    <div class="row" *ngIf="div3">
+      <mat-radio-group  formControlName="quartelyPayment" [(ngModel)]="maintenanceTransaction.quartelyPayment">
+        <mat-label><b>Quartely  &nbsp;</b></mat-label>
+        <mat-radio-button value="Apr-2023-Jun-2023">April-2023 to June-2023</mat-radio-button>
+        <mat-radio-button value="Jul-2023-Sep-2023">July-2023 to Sep-2023</mat-radio-button>
+        <mat-radio-button value="Oct-2023-Dec-2023">Oct-2023 to Dec-2023</mat-radio-button>
+        <mat-radio-button value="Jan-2024-Mar-2024">Jan-2024 to March-2024</mat-radio-button>
+
+      </mat-radio-group>
+      </div>
+
+      <div class="row" *ngIf="div4">
+        <mat-radio-group  formControlName="monthlyPayment" [(ngModel)]="maintenanceTransaction.monthlyPayment">
+          <mat-label><b>Monthly  &nbsp;</b></mat-label><br>
+          <mat-radio-button value="Apr-2023">April-2023</mat-radio-button>
+          <mat-radio-button value="May-2023">May-2023</mat-radio-button>
+          <mat-radio-button value="Jun-2023">June-2023</mat-radio-button>
+          <mat-radio-button value="Jul-2023">July-2023</mat-radio-button>
+          <mat-radio-button value="Aug-2023">Aug-2023</mat-radio-button>
+          <mat-radio-button value="Sep-2023">Sept-2023</mat-radio-button>
+          &NonBreakingSpace;&NonBreakingSpace;
+          <mat-radio-button value="Oct-2023">Oct-2023</mat-radio-button>
+          <mat-radio-button value="Nov-2023">Nov-2023</mat-radio-button>
+          <mat-radio-button value="Dec-2023">Dec-2023</mat-radio-button>
+          <mat-radio-button value="Jan-2023">Jan-2024</mat-radio-button>
+          <mat-radio-button value="Feb-2024">Feb-2024</mat-radio-button>
+          <mat-radio-button value="Mar-2024">March-2024</mat-radio-button>
+          
+        </mat-radio-group>
+        </div>
+      
+    
+    
+  
+  
+&NonBreakingSpace;&NonBreakingSpace;
+    
+  <div class="row">
+    <button mat-raised-button>Cancel</button>&NonBreakingSpace;&NonBreakingSpace;
+    <button mat-raised-button color="primary"  >Search</button>
+
+</div>
+  
+</div>
+</form>
+
+
+
+<table>
+    <thead>
+    <th>Maintenance details</th>
+</thead>
+<tbody>
+  <!--
+  <tr *ngFor="let item of data">
+      {{item.name}}  {{item.age}}
+    </tr>
+    -->
+    <th>Financial Year</th>
+    <th>Wing </th>
+    <th>flatNo </th>
+    <th>April-2023 </th>
+    <th>May-2023 </th>
+    <th>June-2023 </th>
+    <th>July-2023 </th>
+    <th>Aug-2023 </th>
+    <th>Sep-2023 </th>
+    <th>Oct-2023 </th>
+    <th>Nov-2023 </th>
+    <th>Dec-2023 </th>
+    <th>Jan-2024 </th>
+    <th>Feb-2024 </th>
+    <th>March-2024 </th>
+
+    <tr *ngFor="let mnt of maintenanceReport">
+      <td>
+      <div *ngIf="mnt.financialYear" >
+        {{mnt.financialYear}} 
+      </div>
+      <div *ngIf="!mnt.financialYear">
+        No data
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.wing" >
+        {{mnt.wing}} 
+      </div>
+      <div *ngIf="!mnt.wing">
+        No data
+      </div>
+    </td>
+    <td>     
+       <div *ngIf="mnt.flatNo" >
+        {{mnt.flatNo}} 
+      </div>
+      <div *ngIf="!mnt.flatNo">
+        No data
+      </div>
+    </td>
+
+      
+       <td>
+      <div *ngIf="mnt.april2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.april2023">
+        Pending
+      </div>
+    </td>
+<td>
+      <div *ngIf="mnt.may2023" >
+        Paid 
+      </div>
+          
+      <div *ngIf="!mnt.may2023">
+        Pending
+      </div>
+    </td>
+
+    <td>
+      
+      <div *ngIf="mnt.june2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.june2023">
+        Pending
+      </div>
+    </td>
+    <td>      <div *ngIf="mnt.july2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.july2023">
+        Pending
+      </div>
+    </td>
+
+<td>     
+      <div *ngIf="mnt.aug2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.aug2023">
+        Pending
+      </div>
+    </td>
+      <td>
+      <div *ngIf="mnt.sep2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.sep2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.oct2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.oct2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.nov2023" >
+        Paid
+      </div>
+          
+      <div *ngIf="!mnt.nov2023">
+        Pending
+      </div>
+    </td>
+    <td>
+      <div *ngIf="mnt.dec2023" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.dec2023">
+        Pending
+      </div>
+    </td>
+   
+    <td>
+
+      <div *ngIf="mnt.jan2024" >
+       Paid
+      </div>
+    
+         
+      <div *ngIf="!mnt.jan2024">
+        Pending
+      </div>
+      </td>
+      
+      <td>
+
+      <div *ngIf="mnt.feb2024" >
+        Paid
+      </div>
+    
+
+      <div *ngIf="!mnt.feb2024">
+        Pending
+      </div>
+
+    </td> 
+
+    <td>
+
+      <div *ngIf="mnt.march2024" >
+       Paid
+      </div>
+          
+      <div *ngIf="!mnt.march2024">
+        Pending
+      </div>
+    </td>
+
+     
+     
+      
+      
+      
+     
+      
+      
+      
+      
+     
+    </tr>
+ 
+</tbody>
+
+
+  
+  
+<!--
+  <span>{{maintenancePaymentForm.value | json}}</span>-->
+
+  
